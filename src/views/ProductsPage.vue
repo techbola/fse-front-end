@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       title: "Products page",
-      products: products
+      products
     }
   }
 }
