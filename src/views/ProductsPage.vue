@@ -2,7 +2,7 @@
   <div id="page-wrap">
     <div class="grid-wrap">
       <div v-for="product in products" class="product-item" :key="product.id">
-        <img :src="product.imageUrl" alt="product.name" />
+        <img :src="product.imageUrl" :alt="product.name" />
         <h3 class="product-name">{{ product.name }}</h3>
         <p class="product-price">${{ product.price }}</p>
         <router-link :to="{ name: 'ProductDetails', params: { id: product.id } }">
