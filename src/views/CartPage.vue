@@ -1,7 +1,7 @@
 <template>
   <div id="page-wrap">
     <h1>Shopping Cart</h1>
-    <CartProductList :cartItems="cartItems" />
+    <CartProductList :cartItems="cartItems" @remove-from-cart="removeFromCart($event)" />
     <h3 id="total-price">Total: ${{ totalPrice }}</h3>
     <button id="checkout-button">Procees to Checkout</button>
   </div>
@@ -19,6 +19,12 @@ export default {
   data() {
     return {
       cartItems: []
+    }
+  },
+  methods: {
+    async removeFromCart(productId) {
+      const result = await axios.delete(`/api/users/12345/cart/${productId}`);
+      this.cartItems = result.data;
     }
   },
   computed: {
